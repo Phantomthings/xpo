@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 280px; font-family: system-ui; padding: 12px; }
+    .section { margin-bottom: 16px; }
+    label { display: block; margin-bottom: 4px; font-size: 13px; color: #333; }
+    select, input[type="number"] { width: 100%; padding: 6px; font-size: 13px; border: 1px solid #ccc; border-radius: 4px; }
+    button { width: 100%; padding: 8px; font-size: 13px; background: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    button:disabled { background: #aaa; cursor: not-allowed; }
+    .status { padding: 8px; border-radius: 4px; font-size: 12px; text-align: center; }
+    .status.connected { background: #e6f4ea; color: #137333; }
+    .status.disconnected { background: #fce8e6; color: #c5221f; }
+    .status.scanning { background: #fff3cd; color: #856404; }
+    hr { border: none; border-top: 1px solid #eee; margin: 12px 0; }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <label>Target Device</label>
+    <select id="deviceSelect"></select>
+  </div>
+  <div class="section">
+    <label>HSV Hue Min (0-360)</label>
+    <input type="number" id="hueMin" value="340" min="0" max="360">
+  </div>
+  <div class="section">
+    <label>HSV Hue Max (0-360)</label>
+    <input type="number" id="hueMax" value="20" min="0" max="360">
+  </div>
+  <div class="section">
+    <label>Saturation Min (0-1)</label>
+    <input type="number" id="satMin" value="0.55" min="0" max="1" step="0.01">
+  </div>
+  <div class="section">
+    <label>Value Min (0-1)</label>
+    <input type="number" id="valMin" value="0.35" min="0" max="1" step="0.01">
+  </div>
+  <hr>
+  <button id="connectBtn">Connect</button>
+  <div id="status" class="status disconnected">Disconnected</div>
+  <script src="popup.js"></script>
+</body>
+</html>
